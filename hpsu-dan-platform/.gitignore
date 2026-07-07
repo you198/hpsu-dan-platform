@@ -1,23 +1,21 @@
-.env
-.env.*
-!.env.example
-node_modules/
-dist/
-__pycache__/
-.pytest_cache/
-.venv/
-.python_packages/
-.pip-cache/
-.npm-cache/
-.tmp/
-*.pyc
-*.pt
-*.pth
-*.ckpt
-*.onnx
-storage/uploads/*
-storage/quarantine/*
-storage/reports/*
-storage/model_weights/*
-storage/bootstrap-credentials.txt
-!storage/**/.gitkeep
+﻿
+# 运行时生成的文件
+Docker Desktop.lnk
+cloudflared-windows-amd64.exe
+storage/*.db
+storage/*.db-journal
+storage/pids/
+storage/*.log
+storage/web-dev.err.log
+storage/web-dev.out.log
+storage/api-dev.err.log
+storage/api-dev.out.log
+storage/inference-dev.err.log
+storage/inference-dev.out.log
+*.pid
+
+# Three.js 编译产物
+apps/web/src/three/**/*.js
+
+# npm lock 可保留，但如果团队跨平台建议也忽略
+# package-lock.json
