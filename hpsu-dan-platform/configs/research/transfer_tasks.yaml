@@ -1,0 +1,38 @@
+transfer_tasks:
+  PU:
+    S3_to_N15M07F04:
+      source_domains: [N15_M07_F10, N15_M01_F10, N09_M07_F10]
+      target_domain: N15_M07_F04
+      description: Leave N15_M07_F04 as target domain
+    S3_to_N15M07F10:
+      source_domains: [N15_M07_F04, N15_M01_F10, N09_M07_F10]
+      target_domain: N15_M07_F10
+      description: Leave N15_M07_F10 as target domain
+    S3_to_N15M01F10:
+      source_domains: [N15_M07_F04, N15_M07_F10, N09_M07_F10]
+      target_domain: N15_M01_F10
+      description: Leave N15_M01_F10 as target domain
+    S3_to_N09M07F10:
+      source_domains: [N15_M07_F04, N15_M07_F10, N15_M01_F10]
+      target_domain: N09_M07_F10
+      description: Leave N09_M07_F10 as target domain
+
+  SDUST:
+    S5_to_1500_20:
+      source_domains: [1500_60, 2000_20, 2000_60, 3000_20, 3000_60]
+      target_domain: 1500_20
+    S5_to_1500_60:
+      source_domains: [1500_20, 2000_20, 2000_60, 3000_20, 3000_60]
+      target_domain: 1500_60
+    S5_to_2000_20:
+      source_domains: [1500_20, 1500_60, 2000_60, 3000_20, 3000_60]
+      target_domain: 2000_20
+    S5_to_2000_60:
+      source_domains: [1500_20, 1500_60, 2000_20, 3000_20, 3000_60]
+      target_domain: 2000_60
+    S5_to_3000_20:
+      source_domains: [1500_20, 1500_60, 2000_20, 2000_60, 3000_60]
+      target_domain: 3000_20
+    S5_to_3000_60:
+      source_domains: [1500_20, 1500_60, 2000_20, 2000_60, 3000_20]
+      target_domain: 3000_60

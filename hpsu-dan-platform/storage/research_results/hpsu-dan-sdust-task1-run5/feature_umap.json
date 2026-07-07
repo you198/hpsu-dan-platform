@@ -1,0 +1,20 @@
+{
+  "result_id": "hpsu-dan-sdust-task1-run5",
+  "source": "tsne_feature_distribution.png",
+  "projection_method": "t-SNE",
+  "image_asset": "feature_projection_image",
+  "target_only_image_asset": "feature_projection_target_image",
+  "metrics": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class_f1": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  }
+}

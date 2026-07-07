@@ -1,0 +1,213 @@
+{
+  "result_id": "hpsu-dan-pu-task3-run10",
+  "source": "train.log",
+  "transport_matrix_available": false,
+  "note": "This run stores domain/OT training losses and generated feature figures, but not the raw Sinkhorn transport matrix.",
+  "points": [
+    {
+      "epoch": 1,
+      "loss_domain_combined": 0.0458,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 5,
+      "loss_domain_combined": 2.6488,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 10,
+      "loss_domain_combined": 1.0959,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 15,
+      "loss_domain_combined": 0.0463,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 20,
+      "loss_domain_combined": 0.0452,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 25,
+      "loss_domain_combined": 0.552,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 30,
+      "loss_domain_combined": 0.1004,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 35,
+      "loss_domain_combined": 0.2161,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 40,
+      "loss_domain_combined": 0.1792,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 45,
+      "loss_domain_combined": 0.0454,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 50,
+      "loss_domain_combined": 0.3065,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 55,
+      "loss_domain_combined": 0.0463,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 60,
+      "loss_domain_combined": 0.0457,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 65,
+      "loss_domain_combined": 0.046,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 70,
+      "loss_domain_combined": 0.0555,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 75,
+      "loss_domain_combined": 0.0609,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 80,
+      "loss_domain_combined": 0.0459,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 85,
+      "loss_domain_combined": 0.0413,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 90,
+      "loss_domain_combined": 0.046,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 95,
+      "loss_domain_combined": 0.0539,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 100,
+      "loss_domain_combined": 0.0457,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 105,
+      "loss_domain_combined": 0.0398,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 110,
+      "loss_domain_combined": 0.0394,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 115,
+      "loss_domain_combined": 0.0463,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 120,
+      "loss_domain_combined": 0.0382,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 125,
+      "loss_domain_combined": 0.0462,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 130,
+      "loss_domain_combined": 0.0463,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 135,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 140,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 145,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 150,
+      "loss_domain_combined": 0.0464,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 155,
+      "loss_domain_combined": 0.041,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 160,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 165,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 170,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 175,
+      "loss_domain_combined": 0.0462,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 180,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 185,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 190,
+      "loss_domain_combined": 0.0407,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 195,
+      "loss_domain_combined": 0.0461,
+      "loss_ot": 0.0
+    },
+    {
+      "epoch": 200,
+      "loss_domain_combined": 0.0401,
+      "loss_ot": 0.0
+    }
+  ]
+}

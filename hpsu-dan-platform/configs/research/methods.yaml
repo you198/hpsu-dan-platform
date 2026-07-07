@@ -1,0 +1,72 @@
+methods:
+  HPSU-DAN:
+    display_name: HPSU-DAN
+    implementation: DMPAN
+    type: main
+    supports_training: true
+    supports_inference: true
+    supports_research_visualization: true
+    visitor_visible: true
+  DANN:
+    display_name: DANN
+    implementation: DANN
+    type: baseline
+    supports_training: true
+    supports_inference: true
+    visitor_visible: true
+  CDAN:
+    display_name: CDAN
+    implementation: CDAN
+    type: baseline
+    supports_training: true
+    supports_inference: true
+    visitor_visible: true
+  CORAL:
+    display_name: CORAL
+    implementation: CORAL
+    type: baseline
+    supports_training: true
+    supports_inference: true
+    visitor_visible: true
+  MDD:
+    display_name: MDD
+    implementation: MDD
+    type: baseline
+    supports_training: true
+    supports_inference: true
+    visitor_visible: true
+  MK_MMD:
+    display_name: MK-MMD
+    implementation: MK_MMD
+    type: baseline
+    supports_training: true
+    supports_inference: true
+    visitor_visible: true
+  ADACL:
+    display_name: ADACL
+    implementation: ADACL
+    type: baseline
+    supports_training: true
+    supports_inference: true
+    visitor_visible: true
+  DMNIPL:
+    display_name: DMNIPL
+    implementation: DMNIPL
+    type: baseline
+    supports_training: true
+    supports_inference: false
+    visitor_visible: false
+  DRO:
+    display_name: DRO
+    implementation: DRO
+    type: baseline
+    supports_training: true
+    supports_inference: false
+    visitor_visible: false
+  MLDG:
+    display_name: MLDG
+    implementation: MLDG
+    type: baseline
+    supports_training: true
+    supports_inference: false
+    visitor_visible: false

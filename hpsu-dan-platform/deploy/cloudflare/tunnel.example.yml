@@ -1,0 +1,7 @@
+tunnel: HPSU_DAN_TUNNEL_ID
+credentials-file: C:\Users\KMYH\.cloudflared\HPSU_DAN_TUNNEL_ID.json
+
+ingress:
+  - hostname: hpsu-dan-demo.example.com
+    service: http://127.0.0.1:8080
+  - service: http_status:404

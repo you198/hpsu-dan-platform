@@ -1,0 +1,23 @@
+{
+  "result_id": "hpsu-dan-pu-task3-run10",
+  "source": "confusion_matrix.png",
+  "matrix_values_available": false,
+  "image_asset": "confusion_matrix_image",
+  "classes": [],
+  "metrics": {
+    "acc": 0.9991843393148451,
+    "f1_macro": 0.9991795709032141,
+    "precision_macro": 0.999180158181245,
+    "recall_macro": 0.999180158181245,
+    "per_class_f1": [
+      1.0,
+      1.0,
+      1.0,
+      0.9985652797704447,
+      0.9985652797704447,
+      1.0,
+      0.9971264367816092
+    ],
+    "timestamp": 1768794050
+  }
+}

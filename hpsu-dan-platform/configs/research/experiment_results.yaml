@@ -1,0 +1,115 @@
+results:
+  - result_id: hpsu-dan-pu-task3-run10
+    title: PU Task 3 / HPSU-DAN / run 10
+    visibility: public
+    dataset: PU
+    task_id: S3_to_N15M01F10
+    method: HPSU-DAN
+    implementation: DMPAN
+    run_id: run_10_0119-103206
+    checkpoint: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/best_model.pth
+    model_id: hpsu-dan-v1
+    model_version: 1.0.0
+    status: completed
+    metrics:
+      accuracy: 0.9991843393148451
+      macro_f1: 0.9991795709032141
+      precision_macro: 0.999180158181245
+      recall_macro: 0.999180158181245
+      per_class_f1: [1.0, 1.0, 1.0, 0.9985652797704447, 0.9985652797704447, 1.0, 0.9971264367816092]
+      confidence_demo: 0.9925
+    diagnosis_example:
+      code: KI17
+      label_en: Inner race fault KI17
+      label_zh: 轴承内圈故障 KI17
+      twin_target: bearing.inner_race
+      markers: [BPFI, 2xBPFI]
+      health_score: 20
+      risk_level: severe
+    assets:
+      training_curve: storage/research_results/hpsu-dan-pu-task3-run10/training_curve.json
+      training_curve_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/training_curves.jpg
+      confusion_matrix: storage/research_results/hpsu-dan-pu-task3-run10/confusion_matrix.json
+      confusion_matrix_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/confusion_matrix.png
+      feature_umap: storage/research_results/hpsu-dan-pu-task3-run10/feature_umap.json
+      feature_projection_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/tsne_feature_distribution.png
+      feature_projection_target_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/tsne_feature_distribution_target_only.png
+      pseudo_label_log: storage/research_results/hpsu-dan-pu-task3-run10/pseudo_label_log.json
+      ot_transport: storage/research_results/hpsu-dan-pu-task3-run10/ot_transport.json
+      report_summary: storage/research_results/hpsu-dan-pu-task3-run10/report_summary.json
+
+  - result_id: hpsu-dan-pu-task1-run10
+    title: PU Task 1 / HPSU-DAN / run 10
+    visibility: public
+    dataset: PU
+    task_id: S3_to_N15M07F04
+    method: HPSU-DAN
+    implementation: DMPAN
+    run_id: run_10_0118-230040
+    checkpoint: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M07F04/run_10_0118-230040/best_model.pth
+    model_id: hpsu-dan-pu-task1
+    model_version: 1.0.0
+    status: completed
+    metrics:
+      accuracy: 0.9975530179445351
+      macro_f1: 0.9975636947366225
+      precision_macro: 0.9975728787576144
+      recall_macro: 0.9975717347137569
+      per_class_f1: [1.0, 1.0, 0.9985611510791367, 0.9943181818181818, 0.997134670487106, 0.9971751412429378, 0.9957567185289957]
+    diagnosis_example:
+      code: KA16
+      label_en: Outer race fault KA16
+      label_zh: 轴承外圈故障 KA16
+      twin_target: bearing.outer_race
+      markers: [BPFO, 2xBPFO]
+      health_score: 35
+      risk_level: severe
+    assets:
+      training_curve: storage/research_results/hpsu-dan-pu-task1-run10/training_curve.json
+      training_curve_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M07F04/run_10_0118-230040/training_curves.jpg
+      confusion_matrix: storage/research_results/hpsu-dan-pu-task1-run10/confusion_matrix.json
+      confusion_matrix_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M07F04/run_10_0118-230040/confusion_matrix.png
+      feature_umap: storage/research_results/hpsu-dan-pu-task1-run10/feature_umap.json
+      feature_projection_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M07F04/run_10_0118-230040/tsne_feature_distribution.png
+      feature_projection_target_image: ${CHECKPOINT_ROOT}/DMPAN/PU/S3_to_N15M07F04/run_10_0118-230040/tsne_feature_distribution_target_only.png
+      pseudo_label_log: storage/research_results/hpsu-dan-pu-task1-run10/pseudo_label_log.json
+      ot_transport: storage/research_results/hpsu-dan-pu-task1-run10/ot_transport.json
+      report_summary: storage/research_results/hpsu-dan-pu-task1-run10/report_summary.json
+
+  - result_id: hpsu-dan-sdust-task1-run5
+    title: SDUST Task 1 / HPSU-DAN / run 5
+    visibility: public
+    dataset: SDUST
+    task_id: S5_to_1500_20
+    method: HPSU-DAN
+    implementation: DMPAN
+    run_id: run_5_0119-161705
+    checkpoint: ${CHECKPOINT_ROOT}/DMPAN/SDUST/S5_to_1500_20/run_5_0119-161705/best_model.pth
+    model_id: hpsu-dan-sdust-task1
+    model_version: 1.0.0
+    status: completed
+    metrics:
+      accuracy: 1.0
+      macro_f1: 1.0
+      precision_macro: 1.0
+      recall_macro: 1.0
+      per_class_f1: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    diagnosis_example:
+      code: IF0.6
+      label_en: Inner race fault IF0.6
+      label_zh: 轴承内圈故障 IF0.6
+      twin_target: bearing.inner_race
+      markers: [BPFI, 2xBPFI]
+      health_score: 28
+      risk_level: severe
+    assets:
+      training_curve: storage/research_results/hpsu-dan-sdust-task1-run5/training_curve.json
+      training_curve_image: ${CHECKPOINT_ROOT}/DMPAN/SDUST/S5_to_1500_20/run_5_0119-161705/training_curves.jpg
+      confusion_matrix: storage/research_results/hpsu-dan-sdust-task1-run5/confusion_matrix.json
+      confusion_matrix_image: ${CHECKPOINT_ROOT}/DMPAN/SDUST/S5_to_1500_20/run_5_0119-161705/confusion_matrix.png
+      feature_umap: storage/research_results/hpsu-dan-sdust-task1-run5/feature_umap.json
+      feature_projection_image: ${CHECKPOINT_ROOT}/DMPAN/SDUST/S5_to_1500_20/run_5_0119-161705/tsne_feature_distribution.png
+      feature_projection_target_image: ${CHECKPOINT_ROOT}/DMPAN/SDUST/S5_to_1500_20/run_5_0119-161705/tsne_feature_distribution_target_only.png
+      pseudo_label_log: storage/research_results/hpsu-dan-sdust-task1-run5/pseudo_label_log.json
+      ot_transport: storage/research_results/hpsu-dan-sdust-task1-run5/ot_transport.json
+      report_summary: storage/research_results/hpsu-dan-sdust-task1-run5/report_summary.json

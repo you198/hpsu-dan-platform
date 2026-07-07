@@ -1,0 +1,28 @@
+algorithm_name: HPSU-DAN
+implementation_name: DMPAN
+paper_name: SF-HDOT
+model_id: hpsu-dan-v1
+model_version: 1.0.0
+status: registered
+dataset: PU
+num_classes: 7
+model_file: E:/没有添加新对比试验之前的版本（图形保存格式修改）/checkpoints/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/best_model.pth
+input:
+  sample_length: 1024
+  channels: 1
+  sampling_rate: 25600
+  unit: g
+preprocess:
+  version: preprocess-v1
+  normalization: zscore
+  overlap: 0.5
+class_map:
+  version: pu-7-class-map-v1
+  labels:
+    0: { key: K001, zh: 正常基准 K001, en: Normal K001, twin_part: bearing }
+    1: { key: KA04, zh: 外圈故障 KA04, en: Outer race fault KA04, twin_part: bearing.outer_race }
+    2: { key: KA16, zh: 外圈故障 KA16, en: Outer race fault KA16, twin_part: bearing.outer_race }
+    3: { key: KB23, zh: 复合/滚动体故障 KB23, en: Compound or rolling element fault KB23, twin_part: bearing.rolling_element }
+    4: { key: KB27, zh: 复合/滚动体故障 KB27, en: Compound or rolling element fault KB27, twin_part: bearing.rolling_element }
+    5: { key: KI16, zh: 内圈故障 KI16, en: Inner race fault KI16, twin_part: bearing.inner_race }
+    6: { key: KI17, zh: 内圈故障 KI17, en: Inner race fault KI17, twin_part: bearing.inner_race }

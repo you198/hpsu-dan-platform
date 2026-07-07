@@ -1,0 +1,23 @@
+{
+  "result_id": "hpsu-dan-pu-task3-run10",
+  "dataset": "PU",
+  "task_id": "S3_to_N15M01F10",
+  "method": "HPSU-DAN",
+  "run_id": "run_10_0119-103206",
+  "accuracy": 0.9991843393148451,
+  "macro_f1": 0.9991795709032141,
+  "final_validation_acc": 0.9959,
+  "final_source_acc": 0.9961,
+  "diagnosis_example": {
+    "code": "KI17",
+    "label_en": "Inner race fault KI17",
+    "label_zh": "轴承内圈故障 KI17",
+    "twin_target": "bearing.inner_race",
+    "markers": [
+      "BPFI",
+      "2xBPFI"
+    ],
+    "health_score": 20,
+    "risk_level": "severe"
+  }
+}

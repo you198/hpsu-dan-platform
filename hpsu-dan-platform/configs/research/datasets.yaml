@@ -1,0 +1,71 @@
+datasets:
+  PU:
+    name: Paderborn University Bearing Dataset
+    short_name: PU
+    input_length: 1024
+    sampling_rate: 25600
+    signal_types:
+      - vibration
+      - current
+    class_map: pu-7-class-map-v1
+    domains:
+      N15_M07_F04:
+        speed_rpm: 1500
+        torque_nm: 0.7
+        description: 1500 rpm / 0.7 Nm / outer-race condition
+      N15_M07_F10:
+        speed_rpm: 1500
+        torque_nm: 0.7
+        description: 1500 rpm / 0.7 Nm / inner-race condition
+      N15_M01_F10:
+        speed_rpm: 1500
+        torque_nm: 0.1
+        description: 1500 rpm / 0.1 Nm / inner-race condition
+      N09_M07_F10:
+        speed_rpm: 900
+        torque_nm: 0.7
+        description: 900 rpm / 0.7 Nm / inner-race condition
+    public_classes:
+      - K001
+      - KA04
+      - KA16
+      - KB23
+      - KB27
+      - KI16
+      - KI17
+
+  SDUST:
+    name: SDUST Bearing Dataset
+    short_name: SDUST
+    input_length: 1024
+    sampling_rate: 25600
+    signal_types:
+      - vibration
+    class_map: sdust-7-class-map-v1
+    domains:
+      1500_20:
+        speed_rpm: 1500
+        load_n: 20
+      1500_60:
+        speed_rpm: 1500
+        load_n: 60
+      2000_20:
+        speed_rpm: 2000
+        load_n: 20
+      2000_60:
+        speed_rpm: 2000
+        load_n: 60
+      3000_20:
+        speed_rpm: 3000
+        load_n: 20
+      3000_60:
+        speed_rpm: 3000
+        load_n: 60
+    public_classes:
+      - NC
+      - IF0.2
+      - IF0.6
+      - OF0.2
+      - OF0.6
+      - RF0.2
+      - RF0.6

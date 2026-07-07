@@ -1,0 +1,23 @@
+{
+  "result_id": "hpsu-dan-pu-task1-run10",
+  "dataset": "PU",
+  "task_id": "S3_to_N15M07F04",
+  "method": "HPSU-DAN",
+  "run_id": "run_10_0118-230040",
+  "accuracy": 0.9975530179445351,
+  "macro_f1": 0.9975636947366225,
+  "final_validation_acc": 0.9971,
+  "final_source_acc": 0.9964,
+  "diagnosis_example": {
+    "code": "KA16",
+    "label_en": "Outer race fault KA16",
+    "label_zh": "轴承外圈故障 KA16",
+    "twin_target": "bearing.outer_race",
+    "markers": [
+      "BPFO",
+      "2xBPFO"
+    ],
+    "health_score": 35,
+    "risk_level": "severe"
+  }
+}

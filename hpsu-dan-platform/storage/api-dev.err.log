@@ -1,0 +1,114 @@
+INFO:     Started server process [14544]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: disk I/O error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\starlette\routing.py", line 692, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KMYH\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\services\api\app\main.py", line 21, in lifespan
+    init_database()
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\services\api\app\db.py", line 53, in init_database
+    Base.metadata.create_all(engine)
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\schema.py", line 5924, in create_all
+    bind._run_ddl_visitor(
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 3248, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 2455, in _run_ddl_visitor
+    ).traverse_single(element)
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\visitors.py", line 664, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\ddl.py", line 982, in visit_metadata
+    self.traverse_single(
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\visitors.py", line 664, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\ddl.py", line 1020, in visit_table
+    )._invoke_with(self.connection)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\ddl.py", line 321, in _invoke_with
+    return bind.execute(self)
+           ^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 1415, in execute
+    return meth(
+           ^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\sql\ddl.py", line 187, in _execute_on_connection
+    return connection._execute_ddl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 1526, in _execute_ddl
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "E:\没有添加新对比试验之前的版本（图形保存格式修改）\hpsu-dan-platform\.python_packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) disk I/O error
+[SQL: 
+CREATE TABLE users (
+	username VARCHAR(64) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	role VARCHAR(32) NOT NULL, 
+	active BOOLEAN NOT NULL, 
+	created_at DATETIME NOT NULL, 
+	PRIMARY KEY (username)
+)
+
+]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+ERROR:    Application startup failed. Exiting.
+INFO:     Started server process [10352]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started server process [28452]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8000): [winerror 10048] 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Started server process [23532]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8000): [winerror 10048] 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Started server process [3936]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started server process [5324]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started server process [18372]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started server process [22040]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started server process [33420]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)

@@ -1,0 +1,23 @@
+{
+  "result_id": "hpsu-dan-sdust-task1-run5",
+  "dataset": "SDUST",
+  "task_id": "S5_to_1500_20",
+  "method": "HPSU-DAN",
+  "run_id": "run_5_0119-161705",
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "final_validation_acc": 1.0,
+  "final_source_acc": 1.0,
+  "diagnosis_example": {
+    "code": "IF0.6",
+    "label_en": "Inner race fault IF0.6",
+    "label_zh": "轴承内圈故障 IF0.6",
+    "twin_target": "bearing.inner_race",
+    "markers": [
+      "BPFI",
+      "2xBPFI"
+    ],
+    "health_score": 28,
+    "risk_level": "severe"
+  }
+}

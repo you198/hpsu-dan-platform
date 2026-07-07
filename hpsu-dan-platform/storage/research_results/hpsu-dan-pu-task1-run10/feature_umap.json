@@ -1,0 +1,20 @@
+{
+  "result_id": "hpsu-dan-pu-task1-run10",
+  "source": "tsne_feature_distribution.png",
+  "projection_method": "t-SNE",
+  "image_asset": "feature_projection_image",
+  "target_only_image_asset": "feature_projection_target_image",
+  "metrics": {
+    "accuracy": 0.9975530179445351,
+    "macro_f1": 0.9975636947366225,
+    "per_class_f1": [
+      1.0,
+      1.0,
+      0.9985611510791367,
+      0.9943181818181818,
+      0.997134670487106,
+      0.9971751412429378,
+      0.9957567185289957
+    ]
+  }
+}
