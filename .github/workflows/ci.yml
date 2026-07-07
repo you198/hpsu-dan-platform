@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop ]
+env:
+  NODE_VERSION: "22"
+  PYTHON_VERSION: "3.12"
+jobs:
+  frontend:
+    name: Frontend Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+      - run: cd hpsu-dan-platform/apps/web && npm ci
+      - run: cd hpsu-dan-platform/apps/web && npm run build
+  backend-api:
+    name: API Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: cd hpsu-dan-platform/services/api && pip install -r requirements.txt
+      - run: cd hpsu-dan-platform/services/api && python -m pytest tests/ -v --tb=short
+  backend-inf:
+    name: Inference Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: cd hpsu-dan-platform/services/inference && pip install -r requirements.txt
+      - run: cd hpsu-dan-platform/services/inference && python -m pytest tests/ -v --tb=short
