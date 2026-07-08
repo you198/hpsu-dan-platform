@@ -30,11 +30,7 @@ app = FastAPI(title="HPSU-DAN Inference Service", version="0.1.0")
 _bridge: HPSUDANLegacyBridge | None = None
 
 
-class PredictRequest(BaseModel):
-    samples: list[float] = Field(min_length=1024, max_length=262144)
-    sampling_rate: int = Field(default=25600, ge=1, le=1000000)
-    model_id: str = Field(default="hpsu-dan-v1", max_length=128)
-
+from hpsu_dan_adapter.schemas import PredictRequest
 
 LABELS = {
     0: ("normal", "正常状态", "Normal", "bearing"),
