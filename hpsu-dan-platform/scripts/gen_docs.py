@@ -1,4 +1,9 @@
-# API Reference v1
+﻿# -*- coding: utf-8 -*-
+import sys, os
+cwd = os.getcwd()
+
+# Write comprehensive api.md
+api_md = r"""# API Reference v1
 
 所有接口前缀：`/api/v1`
 
@@ -78,3 +83,8 @@
 ## 完整 OpenAPI JSON
 
 运行 API 服务后访问 `http://localhost:8000/openapi.json` 获取最新版。
+"""
+
+path_api = os.path.join(cwd, 'hpsu-dan-platform', 'docs', 'api.md')
+open(path_api, 'w', encoding='utf-8').write(api_md)
+print("api.md written: " + str(len(api_md)) + " bytes")

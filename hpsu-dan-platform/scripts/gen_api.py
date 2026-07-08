@@ -1,3 +1,9 @@
+﻿# -*- coding: utf-8 -*-
+import sys, os
+cwd = os.getcwd()
+target = os.path.join(cwd, 'hpsu-dan-platform', 'apps', 'web', 'src', 'api.ts')
+
+content = """\
 // ═══════════════════════════════════════════════════════
 // HPSU-DAN Platform — API Client & Type Definitions
 // 此文件是前后端之间的唯一接口契约
@@ -410,3 +416,7 @@ export function chatWithAssistant(content) {
     }),
   })
 }
+"""
+
+open(target, 'w', encoding='utf-8').write(content)
+print("api.ts written OK: " + str(len(content)) + " bytes")
