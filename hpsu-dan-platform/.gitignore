@@ -1,7 +1,10 @@
-﻿
-# 运行时生成的文件
+﻿# 运行时生成的文件
 Docker Desktop.lnk
 cloudflared-windows-amd64.exe
+.env
+*.pid
+
+# 存储目录（不上传用户上传文件）
 storage/*.db
 storage/*.db-journal
 storage/pids/
@@ -12,7 +15,24 @@ storage/api-dev.err.log
 storage/api-dev.out.log
 storage/inference-dev.err.log
 storage/inference-dev.out.log
-*.pid
+storage/uploads/
+storage/quarantine/
+storage/bootstrap-credentials.txt
+
+# Python 运行时缓存与虚拟环境
+__pycache__/
+*.pyc
+.python_packages/
+.pip-cache/
+.venv/
+
+# 前端编译产物
+apps/web/src/**/*.vue.js
+apps/web/src/**/*.js.js
+apps/web/dist/
+apps/web/node_modules/
+apps/web/.npm-cache/
+.tmp/
 
 # Three.js 编译产物
 apps/web/src/three/**/*.js
