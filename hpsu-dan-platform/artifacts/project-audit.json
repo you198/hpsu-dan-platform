@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "1.0",
+  "phase": "Phase 0",
+  "generatedAt": "2026-07-10",
+  "workspaceRoot": "E:\\没有添加新对比试验之前的版本（图形保存格式修改）",
+  "platformRoot": "E:\\没有添加新对比试验之前的版本（图形保存格式修改）\\hpsu-dan-platform",
+  "frontend": {
+    "framework": "Vue 3",
+    "frameworkVersion": "3.5.16",
+    "language": "TypeScript",
+    "typescriptVersion": "5.8.x",
+    "buildTool": "Vite",
+    "stateManagement": "Pinia",
+    "chartLibrary": "ECharts",
+    "threeInstalled": true,
+    "threeVersion": "0.177.0",
+    "tresjsInstalled": false,
+    "babylonjsInstalled": false,
+    "digitalTwinCurrentMode": "SVG/component testbench with partial Three.js support code",
+    "importantViews": [
+      "apps/web/src/views/AppShell.vue",
+      "apps/web/src/views/DashboardCompetitionView.vue",
+      "apps/web/src/views/DigitalTwinCompetitionView.vue",
+      "apps/web/src/views/DiagnosisView.vue",
+      "apps/web/src/views/ResearchWorkbenchView.vue",
+      "apps/web/src/views/SystemView.vue",
+      "apps/web/src/views/LoginView.vue"
+    ],
+    "mockSources": [
+      "apps/web/src/mocks/twinMock.ts",
+      "apps/web/src/mocks/researchMock.ts",
+      "apps/web/src/mocks/experimentsMock.ts",
+      "apps/web/src/config/twinProfiles.ts",
+      "apps/web/src/config/faultTargetMap.ts",
+      "apps/web/src/config/datasetConditions.ts"
+    ],
+    "apiClient": {
+      "baseEnv": "VITE_API_BASE_URL",
+      "mockEnvObserved": "VITE_USE_MOCK",
+      "promptPreferredMockEnv": "VITE_ENABLE_MOCK",
+      "services": [
+        "authApi.ts",
+        "diagnosisApi.ts",
+        "researchApi.ts",
+        "experimentsApi.ts",
+        "systemApi.ts",
+        "taskApi.ts",
+        "assistantApi.ts"
+      ]
+    },
+    "testResults": {
+      "typecheck": "passed",
+      "build": "passed",
+      "lint": "missing_script",
+      "test": "missing_script",
+      "buildWarnings": [
+        "Vite reports main chunk larger than 500 kB",
+        "Generated empty chunk: three"
+      ]
+    }
+  },
+  "backend": {
+    "apiFramework": "FastAPI",
+    "apiFrameworkVersion": "0.115.12",
+    "orm": "SQLAlchemy 2.0.41",
+    "migration": "Alembic 1.16.2",
+    "databaseDefault": "SQLite",
+    "postgresqlSupportedByUrl": true,
+    "apiServicePath": "services/api",
+    "inferenceServicePath": "services/inference",
+    "adapterPath": "packages/hpsu_dan_adapter",
+    "inferenceModes": [
+      "demo",
+      "real"
+    ],
+    "routesObserved": [
+      "/health",
+      "/api/v1/auth/login",
+      "/api/v1/auth/me",
+      "/api/v1/dashboard/summary",
+      "/api/v1/catalog/datasets",
+      "/api/v1/catalog/datasets/{dataset_id}",
+      "/api/v1/catalog/datasets/{dataset_id}/conditions",
+      "/api/v1/catalog/datasets/{dataset_id}/faults",
+      "/api/v1/catalog/datasets/{dataset_id}/channels",
+      "/api/v1/models",
+      "/api/v1/models/{model_id}",
+      "/api/v1/models/{model_id}/manifest",
+      "/api/v1/diagnosis/predict",
+      "/api/v1/diagnosis/upload",
+      "/api/v1/diagnosis/history",
+      "/api/v1/diagnosis/{task_id}",
+      "/api/v1/tasks",
+      "/api/v1/tasks/{task_id}",
+      "/api/v1/tasks/{task_id}/rerun",
+      "/api/v1/files/quarantine",
+      "/api/v1/compute/status",
+      "/api/v1/research/options",
+      "/api/v1/research/refresh",
+      "/api/v1/research/results/{result_id}",
+      "/api/v1/research/results/{result_id}/assets/{asset_name}",
+      "/api/v1/system/status",
+      "/api/v1/assistant/chat"
+    ],
+    "tablesObserved": [
+      "users",
+      "diagnosis_records",
+      "uploaded_files",
+      "platform_tasks",
+      "roles",
+      "user_roles",
+      "datasets",
+      "dataset_conditions",
+      "fault_catalog",
+      "signal_channels",
+      "model_registry",
+      "model_versions",
+      "signal_assets",
+      "experiment_runs",
+      "experiment_metrics",
+      "experiment_assets",
+      "training_tasks",
+      "system_snapshots",
+      "audit_logs",
+      "assistant_conversations",
+      "assistant_messages"
+    ],
+    "testResults": {
+      "apiPytest": "6 passed",
+      "inferencePytest": "3 passed",
+      "alembicEmptyDb": "passed using temp ASCII SQLite path"
+    },
+    "knownIssues": [
+      "SQLite can raise disk I/O error under the Chinese workspace path",
+      "Repository + Service layering is not fully separated yet",
+      "Some prompt-requested table names differ from current compatibility tables"
+    ]
+  },
+  "legacy": {
+    "legacyRootEnv": "HPSU_DAN_LEGACY_ROOT",
+    "legacyRootRecommendedValue": "E:\\没有添加新对比试验之前的版本（图形保存格式修改）",
+    "algorithmFilesObserved": [
+      "train.py",
+      "train_utils.py",
+      "opt.py",
+      "utils.py",
+      "models",
+      "datasets",
+      "checkpoints",
+      "experiments",
+      "comparative_experiments",
+      "ablation",
+      "noise_robustness_results",
+      "sensitivity_experiments"
+    ],
+    "datasetLoaders": [
+      "datasets/PU.py",
+      "datasets/SDUST.py",
+      "datasets/SequenceDatasets.py",
+      "datasets/sequence_aug.py",
+      "datasets/feature_engineering.py"
+    ],
+    "currentModelManifest": "configs/models/hpsu-dan-v1.yaml",
+    "adapterBridge": "packages/hpsu_dan_adapter/hpsu_dan_adapter/legacy_bridge.py",
+    "issues": [
+      "Existing YAML has mojibake Chinese labels/path text",
+      "Raw PU and SDUST signal directories are not confirmed by Phase 0 scan",
+      "SDUST model manifest is not yet formally verified"
+    ]
+  },
+  "assets": {
+    "counts": {
+      "weights": 1586,
+      "signalLikeFiles": 33,
+      "configAndResultFiles": 2782,
+      "imageAndReportAssets": 16269,
+      "threeDAndCadAssets": 0
+    },
+    "glb": [],
+    "gltf": [],
+    "obj": [],
+    "fbx": [],
+    "stl": [],
+    "cad": [],
+    "imagesPresent": true,
+    "weightsPresent": true,
+    "datasetsConfirmed": [
+      "PU loader code",
+      "SDUST loader code"
+    ],
+    "datasetsUnconfirmed": [
+      "raw PU signal files",
+      "raw SDUST signal files"
+    ],
+    "experimentDirectories": [
+      "checkpoints",
+      "experiments",
+      "comparative_experiments",
+      "experiment_averages",
+      "experiment_details",
+      "ablation",
+      "noise_robustness_results",
+      "sensitivity_experiments",
+      "confusion_matrices_svg",
+      "hpsu-dan-platform/storage/research_results"
+    ]
+  },
+  "runtime": {
+    "frontend": {
+      "url": "http://127.0.0.1:5173",
+      "status": 200
+    },
+    "api": {
+      "url": "http://127.0.0.1:8000/health",
+      "status": "ok"
+    },
+    "inference": {
+      "url": "http://127.0.0.1:8010/health",
+      "status": "ok",
+      "engineMode": "demo"
+    }
+  },
+  "phase0RequiredOutputs": {
+    "docs/audit/project-structure.md": "created",
+    "docs/audit/frontend-audit.md": "created",
+    "docs/audit/backend-audit.md": "created",
+    "docs/audit/legacy-algorithm-audit.md": "created",
+    "docs/audit/data-assets-audit.md": "created",
+    "artifacts/project-audit.json": "created"
+  },
+  "nextPhaseGate": {
+    "canEnterPhase1": true,
+    "notes": [
+      "Proceed with formal Dataset Manifest, Model Manifest, and DTO alignment only after accepting Phase 0 audit.",
+      "Do not claim real 3D assets exist; none were found.",
+      "Do not claim raw signal files are connected; raw data directories remain unconfirmed."
+    ]
+  }
+}
