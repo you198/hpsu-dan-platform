@@ -39,6 +39,40 @@ def test_dashboard_requires_authentication():
         assert response.status_code == 401
 
 
+def test_catalog_and_model_manifest_are_available_to_authenticated_users():
+    with TestClient(app) as client:
+        token = login(client, "guest", "guest-test-password")
+        headers = {"Authorization": f"Bearer {token}"}
+
+        datasets = client.get("/api/v1/catalog/datasets", headers=headers)
+        sdust = client.get("/api/v1/catalog/datasets/SDUST", headers=headers)
+        sdust_faults = client.get("/api/v1/catalog/datasets/SDUST/faults", headers=headers)
+        sdust_channels = client.get("/api/v1/catalog/datasets/SDUST/channels", headers=headers)
+        models = client.get("/api/v1/models", headers=headers)
+        manifest = client.get("/api/v1/models/hpsu-dan-v1/manifest", headers=headers)
+
+        assert datasets.status_code == 200
+        assert {item["id"] for item in datasets.json()["datasets"]} >= {"PU", "SDUST"}
+        assert any(item["manifestPath"] == "configs\\datasets\\PU.json" or item["manifestPath"] == "configs/datasets/PU.json" for item in datasets.json()["datasets"])
+        assert sdust.status_code == 200
+        assert sdust.json()["benchProfile"] == "sdust-bearing-gear-rig"
+        assert sdust.json()["schemaVersion"] == "1.0"
+        assert sdust.json()["availability"]["realModelConfirmed"] is False
+        assert {item["code"] for item in sdust.json()["transferTasks"]} >= {"S5_to_1500_20"}
+        assert sdust_faults.status_code == 200
+        assert "IF0.2" in {item["code"] for item in sdust_faults.json()["faultCatalog"]}
+        assert sdust_channels.status_code == 200
+        assert len(sdust_channels.json()["channels"]) == 6
+        assert models.status_code == 200
+        assert any(item["id"] == "hpsu-dan-v1" for item in models.json()["models"])
+        assert manifest.status_code == 200
+        assert manifest.json()["model_id"] == "hpsu-dan-v1"
+        assert manifest.json()["schemaVersion"] == "1.0"
+        assert manifest.json()["checkpointHash"] == "fff9123c9ebb814f68fa7a1b607886bd0b506dd4cebd79163a8873d38906c2ef"
+        assert manifest.json()["checkpointExists"] is True
+        assert ":\\" not in manifest.text
+
+
 def test_research_registry_is_visible_without_leaking_checkpoint_paths():
     with TestClient(app) as client:
         guest_token = login(client, "guest", "guest-test-password")
@@ -122,6 +156,8 @@ def test_upload_csv_creates_successful_diagnosis_task(monkeypatch):
         payload = response.json()
         assert payload["task"]["status"] == "success"
         assert payload["result"]["engine_mode"] == "real"
+        assert payload["result"]["diagnosisResult"]["schemaVersion"] == "1.0"
+        assert payload["result"]["diagnosisResult"]["faultCode"] == "KI17"
         assert payload["quality"]["has_required_window"] is True
 
         task_id = payload["task"]["task_id"]

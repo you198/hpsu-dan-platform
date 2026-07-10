@@ -23,7 +23,7 @@ MODE = os.getenv("INFERENCE_MODE", "demo").lower()
 LEGACY_ROOT = Path(os.getenv("HPSU_DAN_LEGACY_ROOT", ".."))
 if not LEGACY_ROOT.is_absolute():
     LEGACY_ROOT = (PLATFORM_ROOT / LEGACY_ROOT).resolve()
-MANIFEST_PATH = Path(os.getenv("HPSU_DAN_MODEL_MANIFEST", "configs/models/hpsu-dan-v1.yaml"))
+MANIFEST_PATH = Path(os.getenv("HPSU_DAN_MODEL_MANIFEST", "configs/models/hpsu-dan-v1.json"))
 if not MANIFEST_PATH.is_absolute():
     MANIFEST_PATH = (PLATFORM_ROOT / MANIFEST_PATH).resolve()
 app = FastAPI(title="HPSU-DAN Inference Service", version="0.1.0")

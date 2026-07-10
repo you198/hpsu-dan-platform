@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0",
+  "datasetCode": "SDUST",
+  "displayName": "SDUST Bearing Dataset",
+  "benchProfile": "sdust-bearing-gear-rig",
+  "description": "SDUST bearing dataset verified from opt.py and datasets/SDUST.py. Raw signal directory is still environment-specific and not bundled in the platform.",
+  "signalLength": 1024,
+  "samplingRates": [25600],
+  "samplingDuration": 40,
+  "channels": [
+    {
+      "code": "Bearing-X",
+      "name": "Bearing X",
+      "axis": "X",
+      "sensorLocation": "bearing housing",
+      "unit": "g",
+      "samplingRate": 25600
+    },
+    {
+      "code": "Bearing-Y",
+      "name": "Bearing Y",
+      "axis": "Y",
+      "sensorLocation": "bearing housing",
+      "unit": "g",
+      "samplingRate": 25600
+    },
+    {
+      "code": "Bearing-Z",
+      "name": "Bearing Z",
+      "axis": "Z",
+      "sensorLocation": "bearing housing",
+      "unit": "g",
+      "samplingRate": 25600
+    },
+    {
+      "code": "Gearbox-X",
+      "name": "Gearbox X",
+      "axis": "X",
+      "sensorLocation": "gearbox support",
+      "unit": "g",
+      "samplingRate": 25600
+    },
+    {
+      "code": "Gearbox-Y",
+      "name": "Gearbox Y",
+      "axis": "Y",
+      "sensorLocation": "gearbox support",
+      "unit": "g",
+      "samplingRate": 25600
+    },
+    {
+      "code": "Gearbox-Z",
+      "name": "Gearbox Z",
+      "axis": "Z",
+      "sensorLocation": "gearbox support",
+      "unit": "g",
+      "samplingRate": 25600
+    }
+  ],
+  "conditions": [
+    {
+      "code": "1500_20",
+      "rpm": 1500,
+      "loadValue": 20,
+      "loadUnit": "N",
+      "conditionType": "bearing_constant"
+    },
+    {
+      "code": "1500_60",
+      "rpm": 1500,
+      "loadValue": 60,
+      "loadUnit": "N",
+      "conditionType": "bearing_constant"
+    },
+    {
+      "code": "2000_20",
+      "rpm": 2000,
+      "loadValue": 20,
+      "loadUnit": "N",
+      "conditionType": "bearing_constant"
+    },
+    {
+      "code": "2000_60",
+      "rpm": 2000,
+      "loadValue": 60,
+      "loadUnit": "N",
+      "conditionType": "bearing_constant"
+    },
+    {
+      "code": "3000_20",
+      "rpm": 3000,
+      "loadValue": 20,
+      "loadUnit": "N",
+      "conditionType": "bearing_constant"
+    },
+    {
+      "code": "3000_60",
+      "rpm": 3000,
+      "loadValue": 60,
+      "loadUnit": "N",
+      "conditionType": "bearing_constant"
+    }
+  ],
+  "domains": [
+    "1500_20",
+    "1500_60",
+    "2000_20",
+    "2000_60",
+    "3000_20",
+    "3000_60"
+  ],
+  "transferTasks": [
+    {
+      "code": "S5_to_1500_20",
+      "sourceDomains": ["1500_60", "2000_20", "2000_60", "3000_20", "3000_60"],
+      "targetDomain": "1500_20",
+      "enabled": true
+    },
+    {
+      "code": "S5_to_1500_60",
+      "sourceDomains": ["1500_20", "2000_20", "2000_60", "3000_20", "3000_60"],
+      "targetDomain": "1500_60",
+      "enabled": true
+    },
+    {
+      "code": "S5_to_2000_20",
+      "sourceDomains": ["1500_20", "1500_60", "2000_60", "3000_20", "3000_60"],
+      "targetDomain": "2000_20",
+      "enabled": true
+    },
+    {
+      "code": "S5_to_2000_60",
+      "sourceDomains": ["1500_20", "1500_60", "2000_20", "3000_20", "3000_60"],
+      "targetDomain": "2000_60",
+      "enabled": true
+    },
+    {
+      "code": "S5_to_3000_20",
+      "sourceDomains": ["1500_20", "1500_60", "2000_20", "2000_60", "3000_60"],
+      "targetDomain": "3000_20",
+      "enabled": true
+    },
+    {
+      "code": "S5_to_3000_60",
+      "sourceDomains": ["1500_20", "1500_60", "2000_20", "2000_60", "3000_20"],
+      "targetDomain": "3000_60",
+      "enabled": true
+    }
+  ],
+  "faultCatalog": [
+    {
+      "code": "NC",
+      "nameZh": "正常状态 NC",
+      "nameEn": "Normal Condition NC",
+      "faultType": "normal",
+      "faultTarget": "machine.overall",
+      "severityDefault": "normal"
+    },
+    {
+      "code": "IF0.2",
+      "nameZh": "内圈故障 0.2 mm",
+      "nameEn": "Inner race fault 0.2 mm",
+      "faultType": "inner_race",
+      "faultTarget": "sdust.bearing.inner_race",
+      "faultSize": 0.2,
+      "severityDefault": "warning"
+    },
+    {
+      "code": "IF0.6",
+      "nameZh": "内圈故障 0.6 mm",
+      "nameEn": "Inner race fault 0.6 mm",
+      "faultType": "inner_race",
+      "faultTarget": "sdust.bearing.inner_race",
+      "faultSize": 0.6,
+      "severityDefault": "severe"
+    },
+    {
+      "code": "OF0.2",
+      "nameZh": "外圈故障 0.2 mm",
+      "nameEn": "Outer race fault 0.2 mm",
+      "faultType": "outer_race",
+      "faultTarget": "sdust.bearing.outer_race",
+      "faultSize": 0.2,
+      "severityDefault": "warning"
+    },
+    {
+      "code": "OF0.6",
+      "nameZh": "外圈故障 0.6 mm",
+      "nameEn": "Outer race fault 0.6 mm",
+      "faultType": "outer_race",
+      "faultTarget": "sdust.bearing.outer_race",
+      "faultSize": 0.6,
+      "severityDefault": "severe"
+    },
+    {
+      "code": "RF0.2",
+      "nameZh": "滚动体故障 0.2 mm",
+      "nameEn": "Rolling element fault 0.2 mm",
+      "faultType": "rolling_element",
+      "faultTarget": "sdust.bearing.rolling_element",
+      "faultSize": 0.2,
+      "severityDefault": "warning"
+    },
+    {
+      "code": "RF0.6",
+      "nameZh": "滚动体故障 0.6 mm",
+      "nameEn": "Rolling element fault 0.6 mm",
+      "faultType": "rolling_element",
+      "faultTarget": "sdust.bearing.rolling_element",
+      "faultSize": 0.6,
+      "severityDefault": "severe"
+    }
+  ],
+  "dataFiles": [],
+  "enabledModels": [],
+  "sourceEvidence": [
+    "opt.py:sdust_domain_choices",
+    "opt.py:sdust_fault_classes default",
+    "datasets/SDUST.py"
+  ],
+  "availability": {
+    "loaderCode": true,
+    "rawSignalsConfirmed": false,
+    "realModelConfirmed": false
+  }
+}

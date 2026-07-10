@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-10",
+  "source": "Phase 1 formal dataset manifests",
+  "manifestFiles": [
+    {
+      "datasetCode": "PU",
+      "path": "configs/datasets/PU.json",
+      "status": "formal_manifest_created",
+      "loaderCodeConfirmed": true,
+      "rawSignalsConfirmed": false,
+      "realModelConfirmed": true,
+      "domains": ["N15_M07_F04", "N15_M07_F10", "N15_M01_F10", "N09_M07_F10"],
+      "faultCodes": ["K001", "KA04", "KA16", "KB23", "KB27", "KI16", "KI17"]
+    },
+    {
+      "datasetCode": "SDUST",
+      "path": "configs/datasets/SDUST.json",
+      "status": "formal_manifest_created_without_real_model_binding",
+      "loaderCodeConfirmed": true,
+      "rawSignalsConfirmed": false,
+      "realModelConfirmed": false,
+      "domains": ["1500_20", "1500_60", "2000_20", "2000_60", "3000_20", "3000_60"],
+      "faultCodes": ["NC", "IF0.2", "IF0.6", "OF0.2", "OF0.6", "RF0.2", "RF0.6"]
+    }
+  ]
+}

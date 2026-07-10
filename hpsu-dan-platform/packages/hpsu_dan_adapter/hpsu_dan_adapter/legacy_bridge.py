@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import json
 from pathlib import Path
 import importlib
 import os
@@ -46,20 +47,26 @@ class HPSUDANLegacyBridge:
 
     @classmethod
     def from_manifest(cls, legacy_root: Path, manifest_path: Path, platform_root: Path) -> "HPSUDANLegacyBridge":
-        import yaml
-
         manifest_path = manifest_path.resolve()
         with manifest_path.open("r", encoding="utf-8") as handle:
-            manifest = yaml.safe_load(handle) or {}
+            if manifest_path.suffix.lower() == ".json":
+                manifest = json.load(handle)
+            else:
+                import yaml
 
-        raw_model_file = Path(str(manifest["model_file"]))
+                manifest = yaml.safe_load(handle) or {}
+
+        raw_model_file = Path(str(manifest.get("checkpointPath") or manifest["model_file"]))
         if raw_model_file.is_absolute():
             model_file = raw_model_file
         else:
-            model_file = (platform_root / raw_model_file).resolve()
+            legacy_model_file = (legacy_root / raw_model_file).resolve()
+            platform_model_file = (platform_root / raw_model_file).resolve()
+            model_file = legacy_model_file if legacy_model_file.exists() else platform_model_file
 
         labels = {}
-        raw_labels = (((manifest.get("class_map") or {}).get("labels")) or {})
+        class_map_cfg = manifest.get("classMap") or manifest.get("class_map") or {}
+        raw_labels = (class_map_cfg.get("labels")) or {}
         for raw_index, value in raw_labels.items():
             index = int(raw_index)
             labels[index] = LabelSpec(
@@ -67,26 +74,29 @@ class HPSUDANLegacyBridge:
                 key=str(value["key"]),
                 zh=str(value.get("zh", value["key"])),
                 en=str(value.get("en", value["key"])),
-                twin_part=str(value.get("twin_part", "bearing")),
+                twin_part=str(value.get("twinPart") or value.get("twin_part", "bearing")),
             )
         if not labels:
             raise ValueError("MODEL_MANIFEST_CLASS_MAP_EMPTY")
 
         input_cfg = manifest.get("input") or {}
         preprocess_cfg = manifest.get("preprocess") or {}
-        class_map_cfg = manifest.get("class_map") or {}
+        input_shape = manifest.get("inputShape") or []
+        sample_length = input_cfg.get("sample_length")
+        if sample_length is None and input_shape:
+            sample_length = input_shape[-1]
         contract = ModelContract(
-            algorithm_name=str(manifest.get("algorithm_name", "HPSU-DAN")),
-            implementation_name=str(manifest.get("implementation_name", "DMPAN")),
-            model_id=str(manifest.get("model_id", "hpsu-dan-v1")),
-            model_version=str(manifest.get("model_version", "unregistered")),
+            algorithm_name=str(manifest.get("name") or manifest.get("algorithm_name", "HPSU-DAN")),
+            implementation_name=str(manifest.get("implementationName") or manifest.get("implementation_name", "DMPAN")),
+            model_id=str(manifest.get("modelId") or manifest.get("model_id", "hpsu-dan-v1")),
+            model_version=str(manifest.get("version") or manifest.get("model_version", "unregistered")),
             dataset=str(manifest.get("dataset", "PU")),
-            sample_length=int(input_cfg.get("sample_length", 1024)),
-            sampling_rate=int(input_cfg.get("sampling_rate", 25600)),
+            sample_length=int(sample_length or 1024),
+            sampling_rate=int(preprocess_cfg.get("samplingRate") or input_cfg.get("sampling_rate", 25600)),
             model_file=model_file,
             preprocess_version=str(preprocess_cfg.get("version", "preprocess-v1")),
-            class_map_version=str(class_map_cfg.get("version", "class-map-v1")),
-            normalization=str(preprocess_cfg.get("normalization", "zscore")),
+            class_map_version=str(class_map_cfg.get("schemaVersion") or class_map_cfg.get("version", "class-map-v1")),
+            normalization=str(preprocess_cfg.get("normalization", "mean-std")),
             labels=labels,
         )
         return cls(legacy_root=legacy_root, contract=contract)

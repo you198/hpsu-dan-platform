@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0",
+  "datasetCode": "PU",
+  "displayName": "Paderborn University Bearing Dataset",
+  "benchProfile": "pu-bearing-rig",
+  "description": "Paderborn University bearing dataset used by the legacy HPSU-DAN/DMPAN loader. Domains and public fault classes are verified from opt.py and datasets/PU.py.",
+  "signalLength": 1024,
+  "samplingRates": [25600],
+  "channels": [
+    {
+      "code": "Vibration-X",
+      "name": "Vibration X",
+      "axis": "X",
+      "sensorLocation": "bearing housing",
+      "unit": "g",
+      "samplingRate": 25600,
+      "source": "datasets/PU.py:data_load_and_segment"
+    },
+    {
+      "code": "Current-1",
+      "name": "Motor current",
+      "axis": "I",
+      "sensorLocation": "drive motor",
+      "unit": "A",
+      "samplingRate": 25600,
+      "source": "datasets/PU.py:data_load_and_segment"
+    }
+  ],
+  "conditions": [
+    {
+      "code": "N15_M07_F04",
+      "rpm": 1500,
+      "loadValue": 0.7,
+      "loadUnit": "Nm",
+      "conditionType": "outer_race_condition",
+      "description": "1500 rpm / 0.7 Nm / F04 outer-race condition"
+    },
+    {
+      "code": "N15_M07_F10",
+      "rpm": 1500,
+      "loadValue": 0.7,
+      "loadUnit": "Nm",
+      "conditionType": "inner_race_condition",
+      "description": "1500 rpm / 0.7 Nm / F10 inner-race condition"
+    },
+    {
+      "code": "N15_M01_F10",
+      "rpm": 1500,
+      "loadValue": 0.1,
+      "loadUnit": "Nm",
+      "conditionType": "inner_race_condition",
+      "description": "1500 rpm / 0.1 Nm / F10 inner-race condition"
+    },
+    {
+      "code": "N09_M07_F10",
+      "rpm": 900,
+      "loadValue": 0.7,
+      "loadUnit": "Nm",
+      "conditionType": "inner_race_condition",
+      "description": "900 rpm / 0.7 Nm / F10 inner-race condition"
+    }
+  ],
+  "domains": [
+    "N15_M07_F04",
+    "N15_M07_F10",
+    "N15_M01_F10",
+    "N09_M07_F10"
+  ],
+  "transferTasks": [
+    {
+      "code": "S3_to_N15M07F04",
+      "sourceDomains": ["N15_M07_F10", "N15_M01_F10", "N09_M07_F10"],
+      "targetDomain": "N15_M07_F04",
+      "displayName": "Leave N15_M07_F04 as target domain",
+      "enabled": true
+    },
+    {
+      "code": "S3_to_N15M07F10",
+      "sourceDomains": ["N15_M07_F04", "N15_M01_F10", "N09_M07_F10"],
+      "targetDomain": "N15_M07_F10",
+      "displayName": "Leave N15_M07_F10 as target domain",
+      "enabled": true
+    },
+    {
+      "code": "S3_to_N15M01F10",
+      "sourceDomains": ["N15_M07_F04", "N15_M07_F10", "N09_M07_F10"],
+      "targetDomain": "N15_M01_F10",
+      "displayName": "Leave N15_M01_F10 as target domain",
+      "enabled": true
+    },
+    {
+      "code": "S3_to_N09M07F10",
+      "sourceDomains": ["N15_M07_F04", "N15_M07_F10", "N15_M01_F10"],
+      "targetDomain": "N09_M07_F10",
+      "displayName": "Leave N09_M07_F10 as target domain",
+      "enabled": true
+    }
+  ],
+  "faultCatalog": [
+    {
+      "code": "K001",
+      "nameZh": "正常基准 K001",
+      "nameEn": "Normal K001",
+      "faultType": "normal",
+      "faultTarget": "machine.overall",
+      "severityDefault": "normal"
+    },
+    {
+      "code": "KA04",
+      "nameZh": "外圈故障 KA04",
+      "nameEn": "Outer race fault KA04",
+      "faultType": "outer_race",
+      "faultTarget": "pu.bearing.outer_race",
+      "severityDefault": "warning"
+    },
+    {
+      "code": "KA16",
+      "nameZh": "外圈故障 KA16",
+      "nameEn": "Outer race fault KA16",
+      "faultType": "outer_race",
+      "faultTarget": "pu.bearing.outer_race",
+      "severityDefault": "warning"
+    },
+    {
+      "code": "KB23",
+      "nameZh": "滚动体故障 KB23",
+      "nameEn": "Rolling element fault KB23",
+      "faultType": "rolling_element",
+      "faultTarget": "pu.bearing.rolling_element",
+      "severityDefault": "warning"
+    },
+    {
+      "code": "KB27",
+      "nameZh": "滚动体故障 KB27",
+      "nameEn": "Rolling element fault KB27",
+      "faultType": "rolling_element",
+      "faultTarget": "pu.bearing.rolling_element",
+      "severityDefault": "warning"
+    },
+    {
+      "code": "KI16",
+      "nameZh": "内圈故障 KI16",
+      "nameEn": "Inner race fault KI16",
+      "faultType": "inner_race",
+      "faultTarget": "pu.bearing.inner_race",
+      "severityDefault": "warning"
+    },
+    {
+      "code": "KI17",
+      "nameZh": "内圈故障 KI17",
+      "nameEn": "Inner race fault KI17",
+      "faultType": "inner_race",
+      "faultTarget": "pu.bearing.inner_race",
+      "severityDefault": "warning"
+    }
+  ],
+  "dataFiles": [],
+  "enabledModels": ["hpsu-dan-v1"],
+  "sourceEvidence": [
+    "opt.py:pu_domain_choices",
+    "opt.py:fault_classes default",
+    "datasets/PU.py"
+  ],
+  "availability": {
+    "loaderCode": true,
+    "rawSignalsConfirmed": false,
+    "realModelConfirmed": true
+  }
+}

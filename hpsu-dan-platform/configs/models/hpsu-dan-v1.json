@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "hpsu-dan-v1",
+  "aliases": ["hpsu-dan-pu-v1"],
+  "name": "HPSU-DAN",
+  "implementationName": "DMPAN",
+  "paperName": "SF-HDOT",
+  "framework": "PyTorch",
+  "taskType": "domain_adaptation_fault_diagnosis",
+  "dataset": "PU",
+  "version": "1.0.0",
+  "status": "registered",
+  "checkpointPath": "checkpoints/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/best_model.pth",
+  "checkpointHash": "fff9123c9ebb814f68fa7a1b607886bd0b506dd4cebd79163a8873d38906c2ef",
+  "checkpointSizeBytes": 28468365,
+  "inputShape": [1, 1, 1024],
+  "channels": ["Vibration-X"],
+  "classMap": {
+    "schemaVersion": "pu-7-class-map-v1",
+    "labels": {
+      "0": {
+        "key": "K001",
+        "zh": "正常基准 K001",
+        "en": "Normal K001",
+        "faultType": "normal",
+        "twinPart": "machine.overall"
+      },
+      "1": {
+        "key": "KA04",
+        "zh": "外圈故障 KA04",
+        "en": "Outer race fault KA04",
+        "faultType": "outer_race",
+        "twinPart": "pu.bearing.outer_race"
+      },
+      "2": {
+        "key": "KA16",
+        "zh": "外圈故障 KA16",
+        "en": "Outer race fault KA16",
+        "faultType": "outer_race",
+        "twinPart": "pu.bearing.outer_race"
+      },
+      "3": {
+        "key": "KB23",
+        "zh": "滚动体故障 KB23",
+        "en": "Rolling element fault KB23",
+        "faultType": "rolling_element",
+        "twinPart": "pu.bearing.rolling_element"
+      },
+      "4": {
+        "key": "KB27",
+        "zh": "滚动体故障 KB27",
+        "en": "Rolling element fault KB27",
+        "faultType": "rolling_element",
+        "twinPart": "pu.bearing.rolling_element"
+      },
+      "5": {
+        "key": "KI16",
+        "zh": "内圈故障 KI16",
+        "en": "Inner race fault KI16",
+        "faultType": "inner_race",
+        "twinPart": "pu.bearing.inner_race"
+      },
+      "6": {
+        "key": "KI17",
+        "zh": "内圈故障 KI17",
+        "en": "Inner race fault KI17",
+        "faultType": "inner_race",
+        "twinPart": "pu.bearing.inner_race"
+      }
+    }
+  },
+  "preprocess": {
+    "version": "preprocess-v1",
+    "normalization": "mean-std",
+    "segmentation": {
+      "windowLength": 1024,
+      "overlap": 0.5
+    },
+    "samplingRate": 25600
+  },
+  "metrics": {},
+  "engineModes": ["real", "demo"],
+  "enabled": true,
+  "sourceEvidence": [
+    "opt.py:fault_classes default",
+    "configs/models/hpsu-dan-v1.yaml",
+    "checkpoints/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/best_model.pth"
+  ]
+}

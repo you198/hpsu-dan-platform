@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-10",
+  "source": "Phase 1 formal model manifests",
+  "models": [
+    {
+      "modelId": "hpsu-dan-v1",
+      "aliases": ["hpsu-dan-pu-v1"],
+      "path": "configs/models/hpsu-dan-v1.json",
+      "dataset": "PU",
+      "framework": "PyTorch",
+      "taskType": "domain_adaptation_fault_diagnosis",
+      "checkpointPath": "checkpoints/DMPAN/PU/S3_to_N15M01F10/run_10_0119-103206/best_model.pth",
+      "checkpointSizeBytes": 28468365,
+      "checkpointHash": "fff9123c9ebb814f68fa7a1b607886bd0b506dd4cebd79163a8873d38906c2ef",
+      "checkpointAvailability": "confirmed",
+      "engineModes": ["real", "demo"],
+      "classMapVersion": "pu-7-class-map-v1"
+    }
+  ],
+  "unconfirmed": [
+    {
+      "dataset": "SDUST",
+      "reason": "No SDUST real model checkpoint was formally bound in Phase 1."
+    }
+  ]
+}
